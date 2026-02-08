@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bangla News Avatar Studio</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="bg"></div>
+    <main class="layout">
+      <section class="hero card">
+        <h1>Bangla News Avatar Studio</h1>
+        <p>
+          Curate clean Bangla headlines, auto-fit ~1–1.5 minute script, and generate TTS-ready bulletin.
+        </p>
+      </section>
+
+      <section class="card form-card">
+        <div class="grid">
+          <label>
+            Headline Input (one per line)
+            <textarea id="headlines" rows="9" placeholder="বাংলাদেশে নতুন নীতিমালা ঘোষণা..."></textarea>
+          </label>
+
+          <div class="controls">
+            <label class="row">
+              <span>Minimum Headlines</span>
+              <input id="minHeadlines" type="number" value="6" min="1" max="30" />
+            </label>
+            <label class="row">
+              <span>Maximum Headlines</span>
+              <input id="maxHeadlines" type="number" value="14" min="1" max="30" />
+            </label>
+            <label class="row">
+              <span>Target Duration (min sec)</span>
+              <input id="targetMin" type="number" value="60" min="20" max="300" />
+            </label>
+            <label class="row">
+              <span>Target Duration (max sec)</span>
+              <input id="targetMax" type="number" value="90" min="20" max="300" />
+            </label>
+
+            <label class="checkbox">
+              <input id="generateAudio" type="checkbox" />
+              <span>Generate TTS audio (Sarvam Bulbul + Aayan)</span>
+            </label>
+            <label class="row">
+              <span>Sarvam API Key (optional if SARVAM_API_KEY env is set)</span>
+              <input id="apiKey" type="password" placeholder="sk_..." autocomplete="off" />
+            </label>
+
+            <button id="generateBtn">Generate Bulletin</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="card output-card">
+        <div class="output-header">
+          <h2>Output</h2>
+          <span id="meta"></span>
+        </div>
+        <pre id="scriptOutput">Your generated script will appear here.</pre>
+        <a id="audioLink" class="hidden" download="headlines_bn.wav">Download Audio</a>
+        <p id="status"></p>
+      </section>
+    </main>
+    <script src="/app.js"></script>
+  </body>
+</html>
